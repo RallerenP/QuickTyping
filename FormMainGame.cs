@@ -40,9 +40,10 @@ namespace QuickTyping
         {
             if (textBoxTyping.Text == text[currentWord] + " ")
             {
-                
+                currentWord++;
                 cst.DisplayText(currentWord, text, challengeText);
-                ++currentWord;
+                textBoxTyping.Clear();
+               
             }
         }
     }

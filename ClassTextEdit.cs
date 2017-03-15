@@ -11,10 +11,16 @@ namespace QuickTyping
 {
     class ClassTextEdit
     {
+
+
+
         //Sets the specified text color to the specified color
-        public void AppendTextBox(RichTextBox textBox, Color color, string text)
+        public void AppendTextBox(RichTextBox textBox, Color color, string text,bool clear)
         {
-            textBox.Clear();
+            if (clear == true)
+            {
+                textBox.Clear();
+            }
             textBox.SelectionStart = textBox.TextLength;
             textBox.SelectionLength = 0;
 
@@ -56,16 +62,19 @@ namespace QuickTyping
             string challengeNumber = path + "/Challenge " + challenge.ToString() + ".txt";
 
             //Convert file to string[]
+            
+            StreamReader sr = new StreamReader(challengeNumber, System.Text.Encoding.Default);
+
+
             string challengeText = "";
-            string[] text = File.ReadAllLines(challengeNumber);
-            for (int i = 0; i < text.Length; i++)
+            string[] challengeTextArr = sr.ReadLine().Split('\n');
+            for (int i = 0; i < challengeTextArr.Length; i++)
             {
-                if (text[i][0] != '$')
+                if (challengeTextArr[i][0] != '$')
                 {
-                    challengeText = text[i];
+                    challengeText += challengeTextArr[i];
                 }
             }
-
             
             string[] arrayToReturn = challengeText.Split(' ');
             return arrayToReturn;
@@ -83,8 +92,8 @@ namespace QuickTyping
                 }
             }
 
-            AppendTextBox(textBox, Color.Gray, displayText[current]);
-            AppendTextBox(textBox, Color.Black, textToDisplay);
+            AppendTextBox(textBox, Color.Gray, displayText[current],true);
+            AppendTextBox(textBox, Color.Black, textToDisplay,false);
          
    
 

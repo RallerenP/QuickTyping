@@ -8,3 +8,13 @@ C:\Users\rasmu\documents\visual studio 2015\Projects\Skole\Opgaver\QuickTyping\o
 C:\Users\rasmu\documents\visual studio 2015\Projects\Skole\Opgaver\QuickTyping\obj\Debug\QuickTyping.csproj.GenerateResource.Cache
 C:\Users\rasmu\documents\visual studio 2015\Projects\Skole\Opgaver\QuickTyping\obj\Debug\QuickTyping.exe
 C:\Users\rasmu\documents\visual studio 2015\Projects\Skole\Opgaver\QuickTyping\obj\Debug\QuickTyping.pdb
+C:\Users\RalleP\Source\Repos\QuickTyping\bin\Debug\QuickTyping.exe.config
+C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.exe
+C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.pdb
+C:\Users\RalleP\Source\Repos\QuickTyping\bin\Debug\QuickTyping.exe
+C:\Users\RalleP\Source\Repos\QuickTyping\bin\Debug\QuickTyping.pdb
+C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.csprojResolveAssemblyReference.cache
+C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.FormMain.resources
+C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.FormMainGame.resources
+C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.Properties.Resources.resources
+C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.csproj.GenerateResource.Cache
