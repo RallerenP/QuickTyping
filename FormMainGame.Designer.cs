@@ -31,6 +31,7 @@
             this.challengeText = new System.Windows.Forms.RichTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBoxTyping = new System.Windows.Forms.TextBox();
+            this.labelFinish = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // challengeText
@@ -57,11 +58,23 @@
             this.textBoxTyping.TabIndex = 2;
             this.textBoxTyping.TextChanged += new System.EventHandler(this.textBoxTyping_TextChanged);
             // 
+            // labelFinish
+            // 
+            this.labelFinish.AutoSize = true;
+            this.labelFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFinish.Location = new System.Drawing.Point(507, 259);
+            this.labelFinish.Name = "labelFinish";
+            this.labelFinish.Size = new System.Drawing.Size(175, 44);
+            this.labelFinish.TabIndex = 3;
+            this.labelFinish.Text = "Finished!";
+            this.labelFinish.Visible = false;
+            // 
             // FormMainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 649);
+            this.Controls.Add(this.labelFinish);
             this.Controls.Add(this.textBoxTyping);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.challengeText);
@@ -77,5 +90,6 @@
         private System.Windows.Forms.RichTextBox challengeText;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBoxTyping;
+        private System.Windows.Forms.Label labelFinish;
     }
 }

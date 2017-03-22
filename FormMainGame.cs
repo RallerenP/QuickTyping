@@ -30,7 +30,7 @@ namespace QuickTyping
         {
             
             text = cst.PrepareText(1);
-            cst.DisplayText(currentWord,text,challengeText);
+            cst.DisplayText(currentWord,text,challengeText,labelFinish);
 
           
             
@@ -38,13 +38,21 @@ namespace QuickTyping
 
         private void textBoxTyping_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxTyping.Text == text[currentWord] + " ")
+            try
             {
-                currentWord++;
-                cst.DisplayText(currentWord, text, challengeText);
-                textBoxTyping.Clear();
-               
+                if (textBoxTyping.Text == text[currentWord] + " ")
+                {
+                    currentWord++;
+                    cst.DisplayText(currentWord, text, challengeText, labelFinish);
+                    textBoxTyping.Clear();
+
+                }
             }
+            catch (IndexOutOfRangeException)
+            {
+
+            }
+           
         }
     }
 }

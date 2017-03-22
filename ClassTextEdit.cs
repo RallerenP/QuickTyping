@@ -80,7 +80,7 @@ namespace QuickTyping
             return arrayToReturn;
         }
 
-        public void DisplayText(int current, string[] displayText, RichTextBox textBox)
+        public void DisplayText(int current, string[] displayText, RichTextBox textBox, Label win)
         {
             
             string textToDisplay = "";
@@ -91,9 +91,17 @@ namespace QuickTyping
                     textToDisplay += " " + displayText[j];
                 }
             }
-
-            AppendTextBox(textBox, Color.Gray, displayText[current],true);
-            AppendTextBox(textBox, Color.Black, textToDisplay,false);
+            try
+            {
+                AppendTextBox(textBox, Color.Gray, displayText[current], true);
+                AppendTextBox(textBox, Color.Black, textToDisplay, false);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                win.Visible = true;
+                textBox.Clear();
+            }
+        
          
    
 
