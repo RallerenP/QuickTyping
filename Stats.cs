@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace QuickTyping
+{
+    public partial class Stats : Form
+    {
+        public Stats()
+        {
+            InitializeComponent();
+            FinishClass fc = new FinishClass();
+            labelPrecision.Text = fc.Precision();
+            
+        }
+
+        
+    }
+}

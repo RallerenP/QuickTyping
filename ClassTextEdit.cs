@@ -12,7 +12,10 @@ namespace QuickTyping
     class ClassTextEdit
     {
 
-
+        internal int fail = 0;
+        double failPerc = 0;
+        int numOfChars = 0;
+        string challengeText = "";
 
         //Sets the specified text color to the specified color
         public void AppendTextBox(RichTextBox textBox, Color color, string text,bool clear)
@@ -66,7 +69,7 @@ namespace QuickTyping
             StreamReader sr = new StreamReader(challengeNumber, System.Text.Encoding.Default);
 
 
-            string challengeText = "";
+            challengeText = "";
             string[] challengeTextArr = sr.ReadLine().Split('\n');
             for (int i = 0; i < challengeTextArr.Length; i++)
             {
@@ -80,7 +83,8 @@ namespace QuickTyping
             return arrayToReturn;
         }
 
-        public void DisplayText(int current, string[] displayText, RichTextBox textBox, Label win)
+        //Displays the text on the given textbox
+        public void DisplayText(int current, string[] displayText, RichTextBox textBox, Label win, Button finish)
         {
             
             string textToDisplay = "";
@@ -99,14 +103,56 @@ namespace QuickTyping
             catch (IndexOutOfRangeException)
             {
                 win.Visible = true;
+                finish.Visible = true; 
                 textBox.Clear();
             }
-        
+        }
+
+
+        //Sets color arcording to if right or wrong.
+        public void RightWrong(TextBox textBox, string[] text, int currentWord, int currentChar, Color right, Color wrong)
+        {
+            
+            string word = text[currentWord];
+            
+            string tempWord = "";
+            try
+            {
+                for (int i = 0; i < currentChar; i++)
+                {
+                    tempWord += word[i];
+
+                }
+                if (textBox.Text == tempWord)
+                {
+                    textBox.BackColor = right;
+                }
+                else
+                {
+                    textBox.BackColor = wrong;
+                     fail++;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+
+                
+            }
          
-   
+        }
 
-
-
+        public double FailPercent()
+        {
+            if (challengeText.ToCharArray().Length >= fail)
+            {
+                failPerc = (challengeText.ToCharArray().Length / fail) * 100;
+            }
+            else
+            {
+                failPerc = (fail / challengeText.ToCharArray().Length) * 100;
+            }
+            
+            return failPerc;
         }
     }
 }

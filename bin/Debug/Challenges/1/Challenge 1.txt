@@ -1,2 +1,2 @@
-Dette er en test challenge. Du vil I dette spil skulle skrive den tekst som der står her. Begynd at skrive for at starte spillet.
+Test challenge.
 $Test Challenge - Af Rasmus Povlsen
