@@ -14,7 +14,7 @@ namespace QuickTyping
         public void EndGame(double timeSpent)
         {
             
-            precision = cst.FailPercent().ToString();
+        //    precision = cst.FailPercent().ToString();
 
             Stats s = new Stats();
             s.Show();

@@ -11,8 +11,9 @@ namespace QuickTyping
 {
     class ClassTextEdit
     {
-
-        internal int fail = 0;
+        Stats st = new Stats();
+        int fail = 0;
+        int keyStrokes = 0;
         double failPerc = 0;
         int numOfChars = 0;
         string challengeText = "";
@@ -110,12 +111,16 @@ namespace QuickTyping
 
 
         //Sets color arcording to if right or wrong.
-        public void RightWrong(TextBox textBox, string[] text, int currentWord, int currentChar, Color right, Color wrong)
+        public void RightWrong(TextBox textBox, string[] text, int currentWord, int currentChar, Color right, Color wrong, bool destructive)
         {
             
             string word = text[currentWord];
             
             string tempWord = "";
+            if (!destructive)
+            {
+                keyStrokes++;
+            }
             try
             {
                 for (int i = 0; i < currentChar; i++)
@@ -126,12 +131,15 @@ namespace QuickTyping
                 if (textBox.Text == tempWord)
                 {
                     textBox.BackColor = right;
+                    
                 }
                 else
                 {
                     textBox.BackColor = wrong;
-                     fail++;
+                    fail++;
+                    
                 }
+               
             }
             catch (IndexOutOfRangeException)
             {
@@ -141,18 +149,14 @@ namespace QuickTyping
          
         }
 
-        public double FailPercent()
+        public void SendStats(TimeSpan time)
         {
-            if (challengeText.ToCharArray().Length >= fail)
-            {
-                failPerc = (challengeText.ToCharArray().Length / fail) * 100;
-            }
-            else
-            {
-                failPerc = (fail / challengeText.ToCharArray().Length) * 100;
-            }
+            st.Fails = fail;
+            st.KeyStrokes = keyStrokes;
+            st.Time = time;
+            st.DisplayStats();
             
-            return failPerc;
+            st.Show();
         }
     }
 }

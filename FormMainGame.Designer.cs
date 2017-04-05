@@ -34,7 +34,8 @@
             this.textBoxTyping = new System.Windows.Forms.TextBox();
             this.labelFinish = new System.Windows.Forms.Label();
             this.ButtonStats = new System.Windows.Forms.Button();
-            this.timerWPM = new System.Windows.Forms.Timer(this.components);
+            this.timerCountdown = new System.Windows.Forms.Timer(this.components);
+            this.labelCountdown = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // challengeText
@@ -86,16 +87,26 @@
             this.ButtonStats.Visible = false;
             this.ButtonStats.Click += new System.EventHandler(this.ButtonStats_Click);
             // 
-            // timerWPM
+            // timerCountdown
             // 
-            this.timerWPM.Interval = 1;
-            this.timerWPM.Tick += new System.EventHandler(this.timerWPM_Tick);
+            this.timerCountdown.Tick += new System.EventHandler(this.timerCountdown_Tick);
+            // 
+            // labelCountdown
+            // 
+            this.labelCountdown.AutoSize = true;
+            this.labelCountdown.Location = new System.Drawing.Point(12, 612);
+            this.labelCountdown.Name = "labelCountdown";
+            this.labelCountdown.Size = new System.Drawing.Size(66, 25);
+            this.labelCountdown.TabIndex = 5;
+            this.labelCountdown.Text = "00:00";
+     
             // 
             // FormMainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 649);
+            this.Controls.Add(this.labelCountdown);
             this.Controls.Add(this.ButtonStats);
             this.Controls.Add(this.labelFinish);
             this.Controls.Add(this.textBoxTyping);
@@ -115,6 +126,7 @@
         private System.Windows.Forms.TextBox textBoxTyping;
         private System.Windows.Forms.Label labelFinish;
         private System.Windows.Forms.Button ButtonStats;
-        private System.Windows.Forms.Timer timerWPM;
+        private System.Windows.Forms.Timer timerCountdown;
+        private System.Windows.Forms.Label labelCountdown;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,16 +15,37 @@ namespace QuickTyping
 {
     public partial class FormMainGame : Form
     {
+        
         FinishClass fc = new FinishClass();
         ClassTextEdit cst = new ClassTextEdit();
+        DateTime start;
+        DateTime end;
+
+        //100 lines of code... 
+
+        
+       
+        
         int currentWord = 0;
         int currentChar = 0;
+        bool destructive = false;
         bool started = false;
         string[] text = { };
-        double timeSpent = 0;
+        TimeSpan timeSpent;
        
        
-
+        public void FormMainGame_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\b')
+            {
+                destructive = true;
+            }
+            else
+            {
+                destructive = false;
+               
+            }
+        }
 
         public FormMainGame()
         {
@@ -46,11 +68,13 @@ namespace QuickTyping
             if (!started)
             {
                 started = true;
-                timerWPM.Start();
+                start = DateTime.Now;
+                var sw = Stopwatch.StartNew();
+                
             }
 
             currentChar = textBoxTyping.Text.ToCharArray().Length;
-            cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red);
+            cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red, destructive);
             try
             {
                 
@@ -64,20 +88,28 @@ namespace QuickTyping
             }
             catch (IndexOutOfRangeException)
             {
-                timerWPM.Stop();
+                
                 textBoxTyping.ReadOnly = true;
+                end = DateTime.Now;
             }
            
         }
 
         private void ButtonStats_Click(object sender, EventArgs e)
         {
-            fc.EndGame(timeSpent);
+            timeSpent = (start - end);
+            cst.SendStats(timeSpent);
+          
         }
 
         private void timerWPM_Tick(object sender, EventArgs e)
         {
-            timeSpent += 0.001;
+         
+        }
+
+        private void timerCountdown_Tick(object sender, EventArgs e)
+        {
+            timeLeft--;
         }
     }
 }
