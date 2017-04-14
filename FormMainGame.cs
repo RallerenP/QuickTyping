@@ -15,7 +15,9 @@ namespace QuickTyping
     {
         ClassTextEdit cst = new ClassTextEdit();
         int currentWord = 0;
+        int currentChar = 0;
         string[] text = { };
+        bool ended = false;
 
 
         public FormMainGame()
@@ -23,6 +25,7 @@ namespace QuickTyping
            
             InitializeComponent();
             this.ActiveControl = textBoxTyping;
+            labelWin.Visible = false;
             StartGame();
         }
 
@@ -38,13 +41,16 @@ namespace QuickTyping
 
         private void textBoxTyping_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxTyping.Text == text[currentWord] + " ")
-            {
-                currentWord++;
-                cst.DisplayText(currentWord, text, challengeText);
-                textBoxTyping.Clear();
-               
+         
+            if (ended == false  && textBoxTyping.Text == text[currentWord] + " ")
+                {
+                    currentWord++;
+                    ended = cst.DisplayText(currentWord, text, challengeText);
+                    textBoxTyping.Clear();
+
             }
+         
+           
         }
     }
 }
