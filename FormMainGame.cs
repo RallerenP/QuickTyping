@@ -25,7 +25,7 @@ namespace QuickTyping
 
         
        
-        
+         
         int currentWord = 0;
         int currentChar = 0;
         bool destructive = false;
