@@ -41,80 +41,88 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 31);
+            this.label1.Location = new System.Drawing.Point(16, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 25);
+            this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Præcision:";
             // 
             // labelPrecision
             // 
             this.labelPrecision.AutoSize = true;
-            this.labelPrecision.Location = new System.Drawing.Point(200, 31);
+            this.labelPrecision.Location = new System.Drawing.Point(100, 16);
+            this.labelPrecision.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPrecision.Name = "labelPrecision";
-            this.labelPrecision.Size = new System.Drawing.Size(116, 25);
+            this.labelPrecision.Size = new System.Drawing.Size(58, 13);
             this.labelPrecision.TabIndex = 1;
             this.labelPrecision.Text = "displayAcc";
             // 
             // labelKeystrokes
             // 
             this.labelKeystrokes.AutoSize = true;
-            this.labelKeystrokes.Location = new System.Drawing.Point(31, 74);
+            this.labelKeystrokes.Location = new System.Drawing.Point(16, 38);
+            this.labelKeystrokes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelKeystrokes.Name = "labelKeystrokes";
-            this.labelKeystrokes.Size = new System.Drawing.Size(120, 25);
+            this.labelKeystrokes.Size = new System.Drawing.Size(61, 13);
             this.labelKeystrokes.TabIndex = 2;
             this.labelKeystrokes.Text = "Taste Tryk:";
             // 
             // displaySrt
             // 
             this.displaySrt.AutoSize = true;
-            this.displaySrt.Location = new System.Drawing.Point(200, 74);
+            this.displaySrt.Location = new System.Drawing.Point(100, 38);
+            this.displaySrt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.displaySrt.Name = "displaySrt";
-            this.displaySrt.Size = new System.Drawing.Size(107, 25);
+            this.displaySrt.Size = new System.Drawing.Size(52, 13);
             this.displaySrt.TabIndex = 3;
             this.displaySrt.Text = "displayStr";
             // 
             // labelFails
             // 
             this.labelFails.AutoSize = true;
-            this.labelFails.Location = new System.Drawing.Point(31, 119);
+            this.labelFails.Location = new System.Drawing.Point(16, 62);
+            this.labelFails.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFails.Name = "labelFails";
-            this.labelFails.Size = new System.Drawing.Size(53, 25);
+            this.labelFails.Size = new System.Drawing.Size(26, 13);
             this.labelFails.TabIndex = 4;
             this.labelFails.Text = "Fejl:";
             // 
             // displayFail
             // 
             this.displayFail.AutoSize = true;
-            this.displayFail.Location = new System.Drawing.Point(200, 119);
+            this.displayFail.Location = new System.Drawing.Point(100, 62);
+            this.displayFail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.displayFail.Name = "displayFail";
-            this.displayFail.Size = new System.Drawing.Size(115, 25);
+            this.displayFail.Size = new System.Drawing.Size(55, 13);
             this.displayFail.TabIndex = 5;
             this.displayFail.Text = "displayFail";
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(31, 159);
+            this.labelTime.Location = new System.Drawing.Point(16, 83);
+            this.labelTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(48, 25);
+            this.labelTime.Size = new System.Drawing.Size(25, 13);
             this.labelTime.TabIndex = 6;
             this.labelTime.Text = "Tid:";
             // 
             // displayTime
             // 
             this.displayTime.AutoSize = true;
-            this.displayTime.Location = new System.Drawing.Point(200, 159);
+            this.displayTime.Location = new System.Drawing.Point(100, 83);
+            this.displayTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.displayTime.Name = "displayTime";
-            this.displayTime.Size = new System.Drawing.Size(127, 25);
+            this.displayTime.Size = new System.Drawing.Size(62, 13);
             this.displayTime.TabIndex = 7;
             this.displayTime.Text = "displayTime";
             // 
             // Stats
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 569);
+            this.ClientSize = new System.Drawing.Size(347, 296);
             this.Controls.Add(this.displayTime);
             this.Controls.Add(this.labelTime);
             this.Controls.Add(this.displayFail);
@@ -123,8 +131,10 @@
             this.Controls.Add(this.labelKeystrokes);
             this.Controls.Add(this.labelPrecision);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Stats";
             this.Text = "Stats";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Stats_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

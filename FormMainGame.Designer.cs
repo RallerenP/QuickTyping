@@ -43,7 +43,7 @@
             this.challengeText.BackColor = System.Drawing.SystemColors.Control;
             this.challengeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.challengeText.Location = new System.Drawing.Point(6, 6);
-            this.challengeText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.challengeText.Margin = new System.Windows.Forms.Padding(2);
             this.challengeText.Name = "challengeText";
             this.challengeText.Size = new System.Drawing.Size(617, 258);
             this.challengeText.TabIndex = 0;
@@ -52,7 +52,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(6, 401);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(310, 20);
             this.textBox1.TabIndex = 1;
@@ -62,7 +62,7 @@
             this.textBoxTyping.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTyping.ForeColor = System.Drawing.SystemColors.InfoText;
             this.textBoxTyping.Location = new System.Drawing.Point(6, 270);
-            this.textBoxTyping.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTyping.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTyping.Name = "textBoxTyping";
             this.textBoxTyping.Size = new System.Drawing.Size(617, 38);
             this.textBoxTyping.TabIndex = 2;
@@ -84,7 +84,7 @@
             // ButtonStats
             // 
             this.ButtonStats.Location = new System.Drawing.Point(251, 176);
-            this.ButtonStats.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonStats.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonStats.Name = "ButtonStats";
             this.ButtonStats.Size = new System.Drawing.Size(90, 32);
             this.ButtonStats.TabIndex = 4;
@@ -95,6 +95,7 @@
             // 
             // timerCountdown
             // 
+            this.timerCountdown.Interval = 1000;
             this.timerCountdown.Tick += new System.EventHandler(this.timerCountdown_Tick);
             // 
             // labelCountdown
@@ -118,7 +119,7 @@
             this.Controls.Add(this.textBoxTyping);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.challengeText);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMainGame";
             this.Text = "FormMainGame";
             this.ResumeLayout(false);

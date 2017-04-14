@@ -27,6 +27,7 @@ namespace QuickTyping
 
         public void DisplayStats()
         {
+            //Af en eller anden mærklig grund vil den ikke lave Fails og Acuraccy om til Doubles i min Math.Round. Man skal lave jit variabler for at den virker. 
             double fails = Fails;
             displayFail.Text = fails.ToString();
             double keystrokes = KeyStrokes;
@@ -75,5 +76,12 @@ namespace QuickTyping
             }
         }
 
+        private void Stats_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          //For at undgå bugs skal man genstarte spillet.
+            Application.Exit();
+        }
+
+      
     }
 }

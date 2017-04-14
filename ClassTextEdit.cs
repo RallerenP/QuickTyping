@@ -72,6 +72,7 @@ namespace QuickTyping
 
             challengeText = "";
             string[] challengeTextArr = sr.ReadLine().Split('\n');
+        
             for (int i = 0; i < challengeTextArr.Length; i++)
             {
                 if (challengeTextArr[i][0] != '$')

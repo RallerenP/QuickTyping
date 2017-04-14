@@ -31,7 +31,8 @@ namespace QuickTyping
         bool started = false;
         string lastChange = "";
         string[] text = { };
-        TimeSpan timer;
+        int timer;
+        TimeSpan timeUsed;
         TimeSpan timeSpent;
        
        
@@ -62,7 +63,7 @@ namespace QuickTyping
             {
                 started = true;
                 start = DateTime.Now;
-                var sw = Stopwatch.StartNew();
+                timerCountdown.Enabled = true; 
                 
             }
 
@@ -70,24 +71,26 @@ namespace QuickTyping
             
             try
             {
+               
+                    if (textBoxTyping.Text == text[currentWord] + " ")
+                    {
+                        currentWord++;
+                        cst.DisplayText(currentWord, text, challengeText, labelFinish, ButtonStats);
+                        textBoxTyping.Clear();
+
+                    }
+                    if (lastChange.Length > textBoxTyping.Text.Length)
+                    {
+                        cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red, true);
+                    }
+                    else
+                    {
+                        cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red, false);
+                    }
+
+                    lastChange = textBoxTyping.Text;
                 
-                if (textBoxTyping.Text == text[currentWord] + " ")
-                {
-                    currentWord++;
-                    cst.DisplayText(currentWord, text, challengeText, labelFinish, ButtonStats);
-                    textBoxTyping.Clear();
-                   
-                }
-                if (lastChange.Length > textBoxTyping.Text.Length)
-                {
-                    cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red, true);
-                }
-                else
-                {
-                    cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red, false);
-                }
             
-                lastChange = textBoxTyping.Text;
             }
             catch (IndexOutOfRangeException)
             {
@@ -107,12 +110,14 @@ namespace QuickTyping
 
         private void timerWPM_Tick(object sender, EventArgs e)
         {
-        
+     
         }
 
         private void timerCountdown_Tick(object sender, EventArgs e)
         {
-      
+            timer++;
+            TimeSpan ts = TimeSpan.FromSeconds(timer);
+            labelCountdown.Text = string.Format("{0}", new DateTime(ts.Ticks).ToString("mm:ss"));
         }
     }
 }
