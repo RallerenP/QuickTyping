@@ -31,7 +31,7 @@ namespace QuickTyping
             displayFail.Text = fails.ToString();
             double keystrokes = KeyStrokes;
             displaySrt.Text = keystrokes.ToString();
-            double accuracy = 100.0-(((fails) / keystrokes) * 100.0);
+            double accuracy = Math.Round(100.0-(((fails) / keystrokes) * 100.0),2);
             labelPrecision.Text = accuracy.ToString() + "%";
             TimeSpan time = Time;
             displayTime.Text = time.ToString("mm':'ss':'fff");

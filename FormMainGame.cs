@@ -28,23 +28,16 @@ namespace QuickTyping
          
         int currentWord = 0;
         int currentChar = 0;
-        bool destructive = false;
         bool started = false;
+        string lastChange = "";
         string[] text = { };
+        TimeSpan timer;
         TimeSpan timeSpent;
        
        
         public void FormMainGame_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\b')
-            {
-                destructive = true;
-            }
-            else
-            {
-                destructive = false;
-               
-            }
+           
         }
 
         public FormMainGame()
@@ -74,7 +67,7 @@ namespace QuickTyping
             }
 
             currentChar = textBoxTyping.Text.ToCharArray().Length;
-            cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red, destructive);
+            
             try
             {
                 
@@ -83,8 +76,18 @@ namespace QuickTyping
                     currentWord++;
                     cst.DisplayText(currentWord, text, challengeText, labelFinish, ButtonStats);
                     textBoxTyping.Clear();
-                    
+                   
                 }
+                if (lastChange.Length > textBoxTyping.Text.Length)
+                {
+                    cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red, true);
+                }
+                else
+                {
+                    cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red, false);
+                }
+            
+                lastChange = textBoxTyping.Text;
             }
             catch (IndexOutOfRangeException)
             {
@@ -104,12 +107,12 @@ namespace QuickTyping
 
         private void timerWPM_Tick(object sender, EventArgs e)
         {
-         
+        
         }
 
         private void timerCountdown_Tick(object sender, EventArgs e)
         {
-            timeLeft--;
+      
         }
     }
 }
