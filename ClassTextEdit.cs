@@ -155,9 +155,14 @@ namespace QuickTyping
             st.Fails = fail;
             st.KeyStrokes = keyStrokes;
             st.Time = time;
-            st.DisplayStats();
+            string[] amountOfWords = challengeText.Split(' ');
+            st.DisplayStats(amountOfWords.Length);
             
             st.Show();
         }
+
+
+
+
     }
 }

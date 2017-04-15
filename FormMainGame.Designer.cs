@@ -45,6 +45,7 @@
             this.challengeText.Location = new System.Drawing.Point(6, 6);
             this.challengeText.Margin = new System.Windows.Forms.Padding(2);
             this.challengeText.Name = "challengeText";
+            this.challengeText.ReadOnly = true;
             this.challengeText.Size = new System.Drawing.Size(617, 258);
             this.challengeText.TabIndex = 0;
             this.challengeText.Text = "";
@@ -128,13 +129,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox challengeText;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBoxTyping;
         private System.Windows.Forms.Label labelFinish;
         private System.Windows.Forms.Button ButtonStats;
         private System.Windows.Forms.Timer timerCountdown;
         private System.Windows.Forms.Label labelCountdown;
+        private System.Windows.Forms.RichTextBox challengeText;
     }
 }

@@ -20,12 +20,21 @@ namespace QuickTyping
         ClassTextEdit cst = new ClassTextEdit();
         DateTime start;
         DateTime end;
+        private int difficulty;   
 
-        //100 lines of code... 
+       public int Difficulty
+        {
+            get
+            {
+                return difficulty;
+            }
+            set
+            {
+                difficulty = value;
+            }
+        }
 
         
-       
-         
         int currentWord = 0;
         int currentChar = 0;
         bool started = false;

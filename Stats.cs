@@ -25,7 +25,7 @@ namespace QuickTyping
             
         }
 
-        public void DisplayStats()
+        public void DisplayStats(int amountOfWords)
         {
             //Af en eller anden mærklig grund vil den ikke lave Fails og Acuraccy om til Doubles i min Math.Round. Man skal lave jit variabler for at den virker. 
             double fails = Fails;
@@ -36,7 +36,8 @@ namespace QuickTyping
             labelPrecision.Text = accuracy.ToString() + "%";
             TimeSpan time = Time;
             displayTime.Text = time.ToString("mm':'ss':'fff");
-
+            //Den giver mig et negativt tal, så jeg ganger med -1 for at give det rigtige resultat.
+            displayWPM.Text = (Math.Round(((amountOfWords * 60) / time.TotalSeconds)* -1 )).ToString();
 
         }
 
@@ -76,9 +77,11 @@ namespace QuickTyping
             }
         }
 
+       
+
         private void Stats_FormClosing(object sender, FormClosingEventArgs e)
         {
-          //For at undgå bugs skal man genstarte spillet.
+          //For at undgå bugs skal man lukke hele spillet.
             Application.Exit();
         }
 

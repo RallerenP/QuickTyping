@@ -20,3 +20,5 @@ C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.Properties.Resour
 C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.csproj.GenerateResource.Cache
 C:\Users\rasmu\Documents\Visual Studio 2015\Projects\Skole\Opgaver\QuickTyping\obj\Debug\QuickTyping.Stats.resources
 C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.Stats.resources
+C:\Users\RalleP\Source\Repos\QuickTyping\bin\Debug\INIFileParser.dll
+C:\Users\RalleP\Source\Repos\QuickTyping\bin\Debug\INIFileParser.xml
