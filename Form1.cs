@@ -11,29 +11,41 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using IniParser;
 using IniParser.Model;
+using System.IO;
 
 namespace QuickTyping
 {
     public partial class FormMain : Form
     {
 
+        int selectedIndex = 0;
         bool profilesOpen = false;
 
         public FormMain()
         {
             InitializeComponent();
+            comboBoxDifficulty.Items.Add("Demo");
             comboBoxDifficulty.Items.Add("Nem");
             comboBoxDifficulty.Items.Add("Middel");
             comboBoxDifficulty.Items.Add("Svær");
 
+            comboBoxDefaultDiff.Items.Add("Demo");
+            comboBoxDefaultDiff.Items.Add("Nem");
+            comboBoxDefaultDiff.Items.Add("Middel");
+            comboBoxDefaultDiff.Items.Add("Svær");
+
+
             //Jeg bruger ini parser af rickyah
             var parser = new FileIniDataParser();
-            IniData data = parser.ReadFile(@"Profiles\Profile 1.ini");
+            IniData demoData = parser.ReadFile(@"Profiles\Demo.ini");
+            IniData profileData = parser.ReadFile(@"Profiles\Profiles.ini");
 
-          
-
-            comboBoxProfiles.Items.Add("Demo");
-            comboBoxProfiles.SelectedIndex = 0;
+            for (int i = 0; i < int.Parse(profileData["Profiles"]["amountOfProfiles"]); i++)
+            {
+                comboBoxProfiles.Items.Add(profileData["Profiles"]["index" + i]);
+            }
+           
+         
 
 
             labelRightColor.Visible = false;
@@ -45,15 +57,16 @@ namespace QuickTyping
             labelRightColorIndex.Visible = false;
             labelWrongColorIndex.Visible = false;
             labelInfo.Visible = false;
-
             buttonSave.Visible = false;
-
-            checkBoxJobMode.Visible = false;
+            labelDifficulty.Visible = false;
+            buttonNewProfile.Visible = false;
+            comboBoxDefaultDiff.Visible = false;
+         
 
             comboBoxProfiles.Visible = false;
             comboBoxRightColor.Visible = false;
             comboBoxWrongColor.Visible = false;
-
+            checkBoxJobMode.Visible = false;
 
             //Taget fra https://www.codeproject.com/Articles/34332/Color-Picker-Combo-Box
             ArrayList ColorList = new ArrayList();
@@ -75,24 +88,41 @@ namespace QuickTyping
                 this.comboBoxWrongColor.Items.Add(c.Name);
 
             }
+            comboBoxProfiles.SelectedIndex = 0;
 
-            
-            comboBoxRightColor.SelectedIndex = int.Parse(data["Profile"]["rightColor"]);
-            comboBoxWrongColor.SelectedIndex = int.Parse(data["Profile"]["wrongColor"]);
+            comboBoxRightColor.SelectedIndex = int.Parse(demoData["Profile"]["rightColorIndex"]);
+            comboBoxWrongColor.SelectedIndex = int.Parse(demoData["Profile"]["wrongColorIndex"]);
 
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            FormMainGame fmg = new FormMainGame();
+            
+
+
+          
             if (comboBoxDifficulty.SelectedIndex == -1)
             {
                 MessageBox.Show("Vælg en sværhedsgrad");
             }
             else
             {
+                var parser = new FileIniDataParser();
+                IniData data = parser.ReadFile(@"Profiles\Demo.ini");
+
+                data["Profile"]["rightColorIndex"] = comboBoxRightColor.SelectedIndex.ToString();
+                data["Profile"]["wrongColorIndex"] = comboBoxWrongColor.SelectedIndex.ToString();
+
+                data["Profile"]["rightColor"] = comboBoxRightColor.Text;
+                data["Profile"]["wrongColorIndex"] = comboBoxWrongColor.Text;
+
+                data["Profile"]["jobMode"] = checkBoxJobMode.ToString();
+                data["Profile"]["defaultDiff"] = comboBoxDifficulty.SelectedIndex.ToString();
+
+                parser.WriteFile(@"Profiles\tempProfile.ini", data);
+
+                FormMainGame fmg = new FormMainGame();
                 fmg.Show();
-            
             }
          
             
@@ -155,6 +185,9 @@ namespace QuickTyping
                 labelJobModeInfo.Visible = true;
                 labelRightColorIndex.Visible = true;
                 labelWrongColorIndex.Visible = true;
+                labelDifficulty.Visible = true;
+                buttonNewProfile.Visible = true;
+                comboBoxDefaultDiff.Visible = true;
 
                 buttonSave.Visible = true;
 
@@ -181,7 +214,9 @@ namespace QuickTyping
                 labelJobModeInfo.Visible = false;
                 labelRightColorIndex.Visible = false;
                 labelWrongColorIndex.Visible = false;
-
+                labelDifficulty.Visible = false;
+                buttonNewProfile.Visible = false;
+                comboBoxDefaultDiff.Visible = false;
                 buttonSave.Visible = false;
 
                 checkBoxJobMode.Visible = false;
@@ -233,7 +268,68 @@ namespace QuickTyping
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            var parser = new FileIniDataParser();
+            string pathToProfile = "Profiles\\" + comboBoxProfiles.Text + ".ini";
+            IniData data = parser.ReadFile(pathToProfile);
 
+            data["Profile"]["rightColorIndex"] = comboBoxRightColor.SelectedIndex.ToString();
+            data["Profile"]["wrongColorIndex"] = comboBoxWrongColor.SelectedIndex.ToString();
+
+            data["Profile"]["rightColor"] = comboBoxRightColor.Text;
+            data["Profile"]["wrongColorIndex"] = comboBoxWrongColor.Text;
+
+            data["Profile"]["jobMode"] = checkBoxJobMode.ToString();
+            data["Profile"]["defaultDiff"] = comboBoxDefaultDiff.SelectedIndex.ToString();
+            parser.WriteFile(pathToProfile, data);
+
+
+        }
+
+        private void comboBoxProfiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedIndex = comboBoxProfiles.SelectedIndex;
+            var parser = new FileIniDataParser();
+            string pathToProfile = "profiles\\" + comboBoxProfiles.Text + ".ini";
+            IniData data = parser.ReadFile(pathToProfile);
+
+            IniData profileData = parser.ReadFile(@"Profiles\Profiles.ini");
+            profileData["Profiles"]["activeProfile"] = comboBoxProfiles.Text;
+            comboBoxRightColor.SelectedIndex = int.Parse(data["Profile"]["rightColorIndex"]);
+            comboBoxWrongColor.SelectedIndex = int.Parse(data["Profile"]["wrongColorIndex"]);
+
+
+        }
+
+        private void buttonNewProfile_Click(object sender, EventArgs e)
+        {
+            textBoxName.Visible = true;
+            textBoxName.SelectAll();
+        
+        }
+
+        private void textBoxName_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var parser = new FileIniDataParser();
+
+                string pathToNewProfile = "Profiles\\" + textBoxName.Text + ".ini";
+                IniData data = parser.ReadFile(@"Profiles\Demo.ini");
+                data["Profile"]["name"] = textBoxName.Text;
+                
+                parser.WriteFile(pathToNewProfile, data);
+
+                IniData profileData = parser.ReadFile(@"Profiles\Profiles.ini");
+                profileData["Profiles"].AddKey("index" + int.Parse(profileData["Profiles"]["amountOfProfiles"]),textBoxName.Text);
+                profileData["Profiles"]["amountOfProfiles"] = (int.Parse(profileData["Profiles"]["amountOfProfiles"]) + 1).ToString();
+
+                parser.WriteFile(@"Profiles\Profiles.ini", profileData);
+
+                textBoxName.Visible = false;
+                comboBoxProfiles.Items.Add(textBoxName.Text);
+                textBoxName.Text = "Skriv Brugernavn Her";
+               
+            }
         }
     }
 }

@@ -46,6 +46,10 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelRightColorIndex = new System.Windows.Forms.Label();
             this.labelWrongColorIndex = new System.Windows.Forms.Label();
+            this.buttonNewProfile = new System.Windows.Forms.Button();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.comboBoxDefaultDiff = new System.Windows.Forms.ComboBox();
+            this.labelDifficulty = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonStart
@@ -84,6 +88,7 @@
             this.comboBoxProfiles.Name = "comboBoxProfiles";
             this.comboBoxProfiles.Size = new System.Drawing.Size(173, 21);
             this.comboBoxProfiles.TabIndex = 3;
+            this.comboBoxProfiles.SelectedIndexChanged += new System.EventHandler(this.comboBoxProfiles_SelectedIndexChanged);
             // 
             // labelProfile
             // 
@@ -201,7 +206,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(245, 236);
+            this.buttonSave.Location = new System.Drawing.Point(245, 273);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(173, 23);
             this.buttonSave.TabIndex = 15;
@@ -227,6 +232,45 @@
             this.labelWrongColorIndex.TabIndex = 17;
             this.labelWrongColorIndex.Text = "label2";
             // 
+            // buttonNewProfile
+            // 
+            this.buttonNewProfile.Location = new System.Drawing.Point(343, 22);
+            this.buttonNewProfile.Name = "buttonNewProfile";
+            this.buttonNewProfile.Size = new System.Drawing.Size(75, 23);
+            this.buttonNewProfile.TabIndex = 18;
+            this.buttonNewProfile.Text = "Ny Profil";
+            this.buttonNewProfile.UseVisualStyleBackColor = true;
+            this.buttonNewProfile.Click += new System.EventHandler(this.buttonNewProfile_Click);
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Location = new System.Drawing.Point(291, 24);
+            this.textBoxName.MaxLength = 10;
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(127, 20);
+            this.textBoxName.TabIndex = 19;
+            this.textBoxName.Text = "Skriv Brugernavn Her";
+            this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxName.Visible = false;
+            this.textBoxName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxName_KeyUp);
+            // 
+            // comboBoxDefaultDiff
+            // 
+            this.comboBoxDefaultDiff.FormattingEnabled = true;
+            this.comboBoxDefaultDiff.Location = new System.Drawing.Point(245, 246);
+            this.comboBoxDefaultDiff.Name = "comboBoxDefaultDiff";
+            this.comboBoxDefaultDiff.Size = new System.Drawing.Size(173, 21);
+            this.comboBoxDefaultDiff.TabIndex = 20;
+            // 
+            // labelDifficulty
+            // 
+            this.labelDifficulty.AutoSize = true;
+            this.labelDifficulty.Location = new System.Drawing.Point(245, 230);
+            this.labelDifficulty.Name = "labelDifficulty";
+            this.labelDifficulty.Size = new System.Drawing.Size(123, 13);
+            this.labelDifficulty.TabIndex = 21;
+            this.labelDifficulty.Text = "Standard Sværhedsgrad";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +278,10 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(455, 362);
+            this.Controls.Add(this.labelDifficulty);
+            this.Controls.Add(this.comboBoxDefaultDiff);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.buttonNewProfile);
             this.Controls.Add(this.labelWrongColorIndex);
             this.Controls.Add(this.labelRightColorIndex);
             this.Controls.Add(this.buttonSave);
@@ -281,6 +329,10 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelRightColorIndex;
         private System.Windows.Forms.Label labelWrongColorIndex;
+        private System.Windows.Forms.Button buttonNewProfile;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.ComboBox comboBoxDefaultDiff;
+        private System.Windows.Forms.Label labelDifficulty;
     }
 }
 

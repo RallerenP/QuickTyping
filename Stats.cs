@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,7 +82,12 @@ namespace QuickTyping
 
         private void Stats_FormClosing(object sender, FormClosingEventArgs e)
         {
-          //For at undgå bugs skal man lukke hele spillet.
+            //For at undgå bugs skal man lukke hele spillet.
+
+            if (File.Exists(@"Profiles\tempProfile.ini"))
+            {
+                File.Delete(@"Profiles\tempProfile.ini");
+            }
             Application.Exit();
         }
 

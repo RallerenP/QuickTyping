@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IniParser;
+using IniParser.Model;
 
 
 
@@ -20,19 +22,12 @@ namespace QuickTyping
         ClassTextEdit cst = new ClassTextEdit();
         DateTime start;
         DateTime end;
-        private int difficulty;   
 
-       public int Difficulty
-        {
-            get
-            {
-                return difficulty;
-            }
-            set
-            {
-                difficulty = value;
-            }
-        }
+        
+
+       
+
+      
 
         
         int currentWord = 0;
@@ -61,7 +56,7 @@ namespace QuickTyping
        public void StartGame()
         {
             
-            text = cst.PrepareText(1);
+            text = cst.PrepareText();
             cst.DisplayText(currentWord,text,challengeText,labelFinish,ButtonStats);
 
         }

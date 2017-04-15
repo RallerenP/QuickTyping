@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IniParser;
+using IniParser.Model;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -14,8 +16,6 @@ namespace QuickTyping
         Stats st = new Stats();
         int fail = 0;
         int keyStrokes = 0;
-        double failPerc = 0;
-        int numOfChars = 0;
         string challengeText = "";
 
         //Sets the specified text color to the specified color
@@ -33,25 +33,34 @@ namespace QuickTyping
             textBox.SelectionColor = textBox.ForeColor;
         }
 
-        public String[] PrepareText(int difficulty)
+        public String[] PrepareText()
         {
             int maxChallenges;
             string path = "";
             Random rd = new Random();
+            var parser = new FileIniDataParser();
+            IniData profileData = parser.ReadFile(@"Profiles\tempProfile.ini");
 
+
+            int difficulty = int.Parse(profileData["Profile"]["defaultDiff"]) + 1;  
             //Choose difficulty
             if (difficulty == 1)
             {
-                path = @"Challenges/1";
+                path = @"Challenges/Demo";
                 maxChallenges = Directory.GetFiles(path, "*", SearchOption.TopDirectoryOnly).Length;
-                
+
             }
             else if (difficulty == 2)
+            {
+                path = @"Challenges/1";
+                maxChallenges = Directory.GetFiles(path, "*", SearchOption.TopDirectoryOnly).Length;
+            }
+            else if (difficulty == 3)
             {
                 path = @"Challenges/2";
                 maxChallenges = Directory.GetFiles(path, "*", SearchOption.TopDirectoryOnly).Length;
             }
-            else if (difficulty == 3)
+            else if (difficulty == 4)
             {
                 path = @"Challenges/3";
                 maxChallenges = Directory.GetFiles(path, "*", SearchOption.TopDirectoryOnly).Length;
