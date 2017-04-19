@@ -17,6 +17,7 @@ namespace QuickTyping
         int fail = 0;
         int keyStrokes = 0;
         string challengeText = "";
+        string challengeTextAuthor = "";
 
         //Sets the specified text color to the specified color
         public void AppendTextBox(RichTextBox textBox, Color color, string text,bool clear)
@@ -33,7 +34,7 @@ namespace QuickTyping
             textBox.SelectionColor = textBox.ForeColor;
         }
 
-        public String[] PrepareText()
+        public string[] PrepareText()
         {
             int maxChallenges;
             string path = "";
@@ -80,22 +81,36 @@ namespace QuickTyping
 
 
             challengeText = "";
-            string[] challengeTextArr = sr.ReadLine().Split('\n');
-        
+
+            string[] challengeTextArr = sr.ReadToEnd().Split('\n');
+            challengeTextArr[0] = challengeTextArr[0].Replace("\r", "");
+            challengeTextArr[1] = challengeTextArr[1].Replace("\r", "");
             for (int i = 0; i < challengeTextArr.Length; i++)
             {
-                if (challengeTextArr[i][0] != '$')
+                if (i == challengeTextArr.Length)
                 {
-                    challengeText += challengeTextArr[i];
+                    challengeTextArr[challengeTextArr.Length - 1].Replace(' ', '\b');
+                }
+
+               
+            }
+
+            string[] arrayToReturn = challengeTextArr[0].Split(' ');
+            for (int i = 0; i < arrayToReturn.Length; i++)
+            {
+                if (i != arrayToReturn.Length-1)
+                {
+                    arrayToReturn[i] += " ";
                 }
             }
-            
-            string[] arrayToReturn = challengeText.Split(' ');
+
+            challengeTextAuthor = challengeTextArr[1].Replace("$", "");
+
             return arrayToReturn;
         }
 
         //Displays the text on the given textbox
-        public void DisplayText(int current, string[] displayText, RichTextBox textBox, Label win, Button finish)
+        public void DisplayText(int current, string[] displayText, RichTextBox textBox, Label win, Button finish,Label author)
         {
             
             string textToDisplay = "";
@@ -114,7 +129,11 @@ namespace QuickTyping
             catch (IndexOutOfRangeException)
             {
                 win.Visible = true;
-                finish.Visible = true; 
+                finish.Visible = true;
+                author.Text = challengeTextAuthor;
+               
+                author.Visible = true;
+
                 textBox.Clear();
             }
         }
@@ -124,7 +143,7 @@ namespace QuickTyping
         public void RightWrong(TextBox textBox, string[] text, int currentWord, int currentChar, Color right, Color wrong, bool destructive)
         {
             
-            string word = text[currentWord];
+            string word = text[currentWord] + " ";
             
             string tempWord = "";
             if (!destructive)

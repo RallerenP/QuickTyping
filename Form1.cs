@@ -20,6 +20,7 @@ namespace QuickTyping
 
         int selectedIndex = 0;
         bool profilesOpen = false;
+        
 
         public FormMain()
         {

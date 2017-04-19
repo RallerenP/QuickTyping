@@ -22,13 +22,6 @@ namespace QuickTyping
         ClassTextEdit cst = new ClassTextEdit();
         DateTime start;
         DateTime end;
-
-        
-
-       
-
-      
-
         
         int currentWord = 0;
         int currentChar = 0;
@@ -36,7 +29,6 @@ namespace QuickTyping
         string lastChange = "";
         string[] text = { };
         int timer;
-        TimeSpan timeUsed;
         TimeSpan timeSpent;
        
        
@@ -57,7 +49,7 @@ namespace QuickTyping
         {
             
             text = cst.PrepareText();
-            cst.DisplayText(currentWord,text,challengeText,labelFinish,ButtonStats);
+            cst.DisplayText(currentWord,text,challengeText,labelFinish,ButtonStats,labelAuthor);
 
         }
 
@@ -76,10 +68,10 @@ namespace QuickTyping
             try
             {
                
-                    if (textBoxTyping.Text == text[currentWord] + " ")
+                    if (textBoxTyping.Text == text[currentWord])
                     {
                         currentWord++;
-                        cst.DisplayText(currentWord, text, challengeText, labelFinish, ButtonStats);
+                        cst.DisplayText(currentWord, text, challengeText, labelFinish, ButtonStats,labelAuthor);
                         textBoxTyping.Clear();
 
                     }
@@ -101,6 +93,7 @@ namespace QuickTyping
                 
                 textBoxTyping.ReadOnly = true;
                 end = DateTime.Now;
+                timerCountdown.Stop();
             }
            
         }

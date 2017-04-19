@@ -22,3 +22,16 @@ C:\Users\rasmu\Documents\Visual Studio 2015\Projects\Skole\Opgaver\QuickTyping\o
 C:\Users\RalleP\Source\Repos\QuickTyping\obj\Debug\QuickTyping.Stats.resources
 C:\Users\RalleP\Source\Repos\QuickTyping\bin\Debug\INIFileParser.dll
 C:\Users\RalleP\Source\Repos\QuickTyping\bin\Debug\INIFileParser.xml
+C:\Users\rasmu\Source\Repos\QuickTyping\obj\Debug\QuickTyping.csprojResolveAssemblyReference.cache
+C:\Users\rasmu\Source\Repos\QuickTyping\obj\Debug\QuickTyping.FormMain.resources
+C:\Users\rasmu\Source\Repos\QuickTyping\obj\Debug\QuickTyping.FormMainGame.resources
+C:\Users\rasmu\Source\Repos\QuickTyping\obj\Debug\QuickTyping.Properties.Resources.resources
+C:\Users\rasmu\Source\Repos\QuickTyping\obj\Debug\QuickTyping.Stats.resources
+C:\Users\rasmu\Source\Repos\QuickTyping\obj\Debug\QuickTyping.csproj.GenerateResource.Cache
+C:\Users\rasmu\Source\Repos\QuickTyping\obj\Debug\QuickTyping.exe
+C:\Users\rasmu\Source\Repos\QuickTyping\obj\Debug\QuickTyping.pdb
+C:\Users\rasmu\Source\Repos\QuickTyping\bin\Debug\QuickTyping.exe.config
+C:\Users\rasmu\Source\Repos\QuickTyping\bin\Debug\QuickTyping.exe
+C:\Users\rasmu\Source\Repos\QuickTyping\bin\Debug\QuickTyping.pdb
+C:\Users\rasmu\Source\Repos\QuickTyping\bin\Debug\INIFileParser.dll
+C:\Users\rasmu\Source\Repos\QuickTyping\bin\Debug\INIFileParser.xml

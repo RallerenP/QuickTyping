@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IniParser;
+using IniParser.Model;
 
 namespace QuickTyping
 {
@@ -33,12 +35,24 @@ namespace QuickTyping
             displayFail.Text = fails.ToString();
             double keystrokes = KeyStrokes;
             displaySrt.Text = keystrokes.ToString();
+            
             double accuracy = Math.Round(100.0-(((fails) / keystrokes) * 100.0),2);
             labelPrecision.Text = accuracy.ToString() + "%";
             TimeSpan time = Time;
             displayTime.Text = time.ToString("mm':'ss':'fff");
-            //Den giver mig et negativt tal, så jeg ganger med -1 for at give det rigtige resultat.
-            displayWPM.Text = (Math.Round(((amountOfWords * 60) / time.TotalSeconds)* -1 )).ToString();
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile(@"Profiles\tempProfile.ini");
+            if (data["Profile"]["jobMode"] == "true") 
+            {
+                //Den giver mig et negativt tal, så jeg ganger med -1 for at give det rigtige resultat.
+                displayWPM.Text = (Math.Round(((amountOfWords * 60) / time.TotalSeconds) * -1)-fails).ToString();
+            }else
+        	{
+                //Den giver mig et negativt tal, så jeg ganger med -1 for at give det rigtige resultat.
+                displayWPM.Text = (Math.Round(((amountOfWords * 60) / time.TotalSeconds) * -1)).ToString();
+            }
+            
+            
 
         }
 
