@@ -54,10 +54,10 @@
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(11, 11);
-            this.buttonStart.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonStart.Location = new System.Drawing.Point(22, 21);
+            this.buttonStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(54, 35);
+            this.buttonStart.Size = new System.Drawing.Size(108, 67);
             this.buttonStart.TabIndex = 0;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
@@ -66,16 +66,18 @@
             // comboBoxDifficulty
             // 
             this.comboBoxDifficulty.FormattingEnabled = true;
-            this.comboBoxDifficulty.Location = new System.Drawing.Point(12, 51);
+            this.comboBoxDifficulty.Location = new System.Drawing.Point(24, 98);
+            this.comboBoxDifficulty.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.comboBoxDifficulty.Name = "comboBoxDifficulty";
-            this.comboBoxDifficulty.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxDifficulty.Size = new System.Drawing.Size(238, 33);
             this.comboBoxDifficulty.TabIndex = 1;
             // 
             // buttonOpenProfiles
             // 
-            this.buttonOpenProfiles.Location = new System.Drawing.Point(195, 11);
+            this.buttonOpenProfiles.Location = new System.Drawing.Point(390, 21);
+            this.buttonOpenProfiles.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.buttonOpenProfiles.Name = "buttonOpenProfiles";
-            this.buttonOpenProfiles.Size = new System.Drawing.Size(31, 23);
+            this.buttonOpenProfiles.Size = new System.Drawing.Size(62, 44);
             this.buttonOpenProfiles.TabIndex = 2;
             this.buttonOpenProfiles.Text = ">>";
             this.buttonOpenProfiles.UseVisualStyleBackColor = true;
@@ -84,18 +86,20 @@
             // comboBoxProfiles
             // 
             this.comboBoxProfiles.FormattingEnabled = true;
-            this.comboBoxProfiles.Location = new System.Drawing.Point(245, 51);
+            this.comboBoxProfiles.Location = new System.Drawing.Point(490, 98);
+            this.comboBoxProfiles.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.comboBoxProfiles.Name = "comboBoxProfiles";
-            this.comboBoxProfiles.Size = new System.Drawing.Size(173, 21);
+            this.comboBoxProfiles.Size = new System.Drawing.Size(342, 33);
             this.comboBoxProfiles.TabIndex = 3;
             this.comboBoxProfiles.SelectedIndexChanged += new System.EventHandler(this.comboBoxProfiles_SelectedIndexChanged);
             // 
             // labelProfile
             // 
             this.labelProfile.AutoSize = true;
-            this.labelProfile.Location = new System.Drawing.Point(245, 32);
+            this.labelProfile.Location = new System.Drawing.Point(490, 62);
+            this.labelProfile.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelProfile.Name = "labelProfile";
-            this.labelProfile.Size = new System.Drawing.Size(30, 13);
+            this.labelProfile.Size = new System.Drawing.Size(61, 25);
             this.labelProfile.TabIndex = 4;
             this.labelProfile.Text = "Profil";
             // 
@@ -103,10 +107,13 @@
             // 
             this.comboBoxRightColor.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxRightColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxRightColor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRightColor.ForeColor = System.Drawing.Color.Black;
             this.comboBoxRightColor.FormattingEnabled = true;
-            this.comboBoxRightColor.Location = new System.Drawing.Point(245, 106);
+            this.comboBoxRightColor.Location = new System.Drawing.Point(490, 204);
+            this.comboBoxRightColor.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.comboBoxRightColor.Name = "comboBoxRightColor";
-            this.comboBoxRightColor.Size = new System.Drawing.Size(173, 21);
+            this.comboBoxRightColor.Size = new System.Drawing.Size(342, 36);
             this.comboBoxRightColor.TabIndex = 5;
             this.comboBoxRightColor.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxRightColor_DrawItem);
             this.comboBoxRightColor.SelectedIndexChanged += new System.EventHandler(this.comboBoxRightColor_SelectedIndexChanged);
@@ -114,28 +121,32 @@
             // labelRightColor
             // 
             this.labelRightColor.AutoSize = true;
-            this.labelRightColor.Location = new System.Drawing.Point(245, 87);
+            this.labelRightColor.Location = new System.Drawing.Point(490, 167);
+            this.labelRightColor.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelRightColor.Name = "labelRightColor";
-            this.labelRightColor.Size = new System.Drawing.Size(71, 13);
+            this.labelRightColor.Size = new System.Drawing.Size(142, 25);
             this.labelRightColor.TabIndex = 6;
             this.labelRightColor.Text = "Korrekt Farve";
             // 
             // labelWrongColor
             // 
             this.labelWrongColor.AutoSize = true;
-            this.labelWrongColor.Location = new System.Drawing.Point(245, 146);
+            this.labelWrongColor.Location = new System.Drawing.Point(490, 281);
+            this.labelWrongColor.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelWrongColor.Name = "labelWrongColor";
-            this.labelWrongColor.Size = new System.Drawing.Size(70, 13);
+            this.labelWrongColor.Size = new System.Drawing.Size(141, 25);
             this.labelWrongColor.TabIndex = 7;
             this.labelWrongColor.Text = "Forkert Farve";
             // 
             // comboBoxWrongColor
             // 
             this.comboBoxWrongColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxWrongColor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxWrongColor.FormattingEnabled = true;
-            this.comboBoxWrongColor.Location = new System.Drawing.Point(245, 162);
+            this.comboBoxWrongColor.Location = new System.Drawing.Point(490, 312);
+            this.comboBoxWrongColor.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.comboBoxWrongColor.Name = "comboBoxWrongColor";
-            this.comboBoxWrongColor.Size = new System.Drawing.Size(173, 21);
+            this.comboBoxWrongColor.Size = new System.Drawing.Size(342, 36);
             this.comboBoxWrongColor.TabIndex = 8;
             this.comboBoxWrongColor.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxWrongColor_DrawItem);
             this.comboBoxWrongColor.SelectedIndexChanged += new System.EventHandler(this.comboBoxWrongColor_SelectedIndexChanged);
@@ -144,9 +155,10 @@
             // 
             this.labelWrongColorInfo.AutoSize = true;
             this.labelWrongColorInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelWrongColorInfo.Location = new System.Drawing.Point(424, 165);
+            this.labelWrongColorInfo.Location = new System.Drawing.Point(848, 317);
+            this.labelWrongColorInfo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelWrongColorInfo.Name = "labelWrongColorInfo";
-            this.labelWrongColorInfo.Size = new System.Drawing.Size(15, 15);
+            this.labelWrongColorInfo.Size = new System.Drawing.Size(26, 27);
             this.labelWrongColorInfo.TabIndex = 9;
             this.labelWrongColorInfo.Text = "?";
             this.labelWrongColorInfo.MouseLeave += new System.EventHandler(this.labelWrongColorInfo_MouseLeave);
@@ -156,9 +168,10 @@
             // 
             this.labelRightColorInfo.AutoSize = true;
             this.labelRightColorInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelRightColorInfo.Location = new System.Drawing.Point(424, 109);
+            this.labelRightColorInfo.Location = new System.Drawing.Point(848, 210);
+            this.labelRightColorInfo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelRightColorInfo.Name = "labelRightColorInfo";
-            this.labelRightColorInfo.Size = new System.Drawing.Size(15, 15);
+            this.labelRightColorInfo.Size = new System.Drawing.Size(26, 27);
             this.labelRightColorInfo.TabIndex = 10;
             this.labelRightColorInfo.Text = "?";
             this.labelRightColorInfo.MouseLeave += new System.EventHandler(this.labelRightColorInfo_MouseLeave);
@@ -167,18 +180,20 @@
             // labelInfo
             // 
             this.labelInfo.AutoSize = true;
-            this.labelInfo.Location = new System.Drawing.Point(13, 79);
+            this.labelInfo.Location = new System.Drawing.Point(26, 152);
+            this.labelInfo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(47, 13);
+            this.labelInfo.Size = new System.Drawing.Size(93, 25);
             this.labelInfo.TabIndex = 11;
             this.labelInfo.Text = "labelInfo";
             // 
             // checkBoxJobMode
             // 
             this.checkBoxJobMode.AutoSize = true;
-            this.checkBoxJobMode.Location = new System.Drawing.Point(245, 202);
+            this.checkBoxJobMode.Location = new System.Drawing.Point(490, 388);
+            this.checkBoxJobMode.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.checkBoxJobMode.Name = "checkBoxJobMode";
-            this.checkBoxJobMode.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxJobMode.Size = new System.Drawing.Size(139, 29);
             this.checkBoxJobMode.TabIndex = 12;
             this.checkBoxJobMode.Text = "Job Mode";
             this.checkBoxJobMode.UseVisualStyleBackColor = true;
@@ -187,9 +202,10 @@
             // 
             this.labelJobModeInfo.AutoSize = true;
             this.labelJobModeInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelJobModeInfo.Location = new System.Drawing.Point(324, 203);
+            this.labelJobModeInfo.Location = new System.Drawing.Point(648, 390);
+            this.labelJobModeInfo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelJobModeInfo.Name = "labelJobModeInfo";
-            this.labelJobModeInfo.Size = new System.Drawing.Size(15, 15);
+            this.labelJobModeInfo.Size = new System.Drawing.Size(26, 27);
             this.labelJobModeInfo.TabIndex = 13;
             this.labelJobModeInfo.Text = "?";
             this.labelJobModeInfo.MouseLeave += new System.EventHandler(this.labelJobModeInfo_MouseLeave);
@@ -198,17 +214,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 32);
+            this.label1.Location = new System.Drawing.Point(142, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(153, 25);
             this.label1.TabIndex = 14;
             this.label1.Text = "Sværhedsgrad";
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(245, 273);
+            this.buttonSave.Location = new System.Drawing.Point(490, 525);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(173, 23);
+            this.buttonSave.Size = new System.Drawing.Size(346, 44);
             this.buttonSave.TabIndex = 15;
             this.buttonSave.Text = "Gem Profil";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -217,26 +235,29 @@
             // labelRightColorIndex
             // 
             this.labelRightColorIndex.AutoSize = true;
-            this.labelRightColorIndex.Location = new System.Drawing.Point(367, 87);
+            this.labelRightColorIndex.Location = new System.Drawing.Point(734, 167);
+            this.labelRightColorIndex.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelRightColorIndex.Name = "labelRightColorIndex";
-            this.labelRightColorIndex.Size = new System.Drawing.Size(35, 13);
+            this.labelRightColorIndex.Size = new System.Drawing.Size(70, 25);
             this.labelRightColorIndex.TabIndex = 16;
             this.labelRightColorIndex.Text = "label2";
             // 
             // labelWrongColorIndex
             // 
             this.labelWrongColorIndex.AutoSize = true;
-            this.labelWrongColorIndex.Location = new System.Drawing.Point(367, 146);
+            this.labelWrongColorIndex.Location = new System.Drawing.Point(734, 281);
+            this.labelWrongColorIndex.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelWrongColorIndex.Name = "labelWrongColorIndex";
-            this.labelWrongColorIndex.Size = new System.Drawing.Size(35, 13);
+            this.labelWrongColorIndex.Size = new System.Drawing.Size(70, 25);
             this.labelWrongColorIndex.TabIndex = 17;
             this.labelWrongColorIndex.Text = "label2";
             // 
             // buttonNewProfile
             // 
-            this.buttonNewProfile.Location = new System.Drawing.Point(343, 22);
+            this.buttonNewProfile.Location = new System.Drawing.Point(686, 42);
+            this.buttonNewProfile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.buttonNewProfile.Name = "buttonNewProfile";
-            this.buttonNewProfile.Size = new System.Drawing.Size(75, 23);
+            this.buttonNewProfile.Size = new System.Drawing.Size(150, 44);
             this.buttonNewProfile.TabIndex = 18;
             this.buttonNewProfile.Text = "Ny Profil";
             this.buttonNewProfile.UseVisualStyleBackColor = true;
@@ -244,10 +265,11 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(291, 24);
+            this.textBoxName.Location = new System.Drawing.Point(582, 46);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.textBoxName.MaxLength = 10;
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(127, 20);
+            this.textBoxName.Size = new System.Drawing.Size(250, 31);
             this.textBoxName.TabIndex = 19;
             this.textBoxName.Text = "Skriv Brugernavn Her";
             this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -257,27 +279,29 @@
             // comboBoxDefaultDiff
             // 
             this.comboBoxDefaultDiff.FormattingEnabled = true;
-            this.comboBoxDefaultDiff.Location = new System.Drawing.Point(245, 246);
+            this.comboBoxDefaultDiff.Location = new System.Drawing.Point(490, 473);
+            this.comboBoxDefaultDiff.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.comboBoxDefaultDiff.Name = "comboBoxDefaultDiff";
-            this.comboBoxDefaultDiff.Size = new System.Drawing.Size(173, 21);
+            this.comboBoxDefaultDiff.Size = new System.Drawing.Size(342, 33);
             this.comboBoxDefaultDiff.TabIndex = 20;
             // 
             // labelDifficulty
             // 
             this.labelDifficulty.AutoSize = true;
-            this.labelDifficulty.Location = new System.Drawing.Point(245, 230);
+            this.labelDifficulty.Location = new System.Drawing.Point(490, 442);
+            this.labelDifficulty.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelDifficulty.Name = "labelDifficulty";
-            this.labelDifficulty.Size = new System.Drawing.Size(123, 13);
+            this.labelDifficulty.Size = new System.Drawing.Size(246, 25);
             this.labelDifficulty.TabIndex = 21;
             this.labelDifficulty.Text = "Standard Sværhedsgrad";
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(455, 362);
+            this.ClientSize = new System.Drawing.Size(910, 696);
             this.Controls.Add(this.labelDifficulty);
             this.Controls.Add(this.comboBoxDefaultDiff);
             this.Controls.Add(this.textBoxName);
@@ -300,9 +324,9 @@
             this.Controls.Add(this.buttonOpenProfiles);
             this.Controls.Add(this.comboBoxDifficulty);
             this.Controls.Add(this.buttonStart);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMain";
-            this.Padding = new System.Windows.Forms.Padding(0, 0, 10, 10);
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 20, 19);
             this.Text = "Hoved Menu";
             this.ResumeLayout(false);
             this.PerformLayout();

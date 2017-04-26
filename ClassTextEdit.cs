@@ -11,15 +11,16 @@ using System.Windows.Forms;
 
 namespace QuickTyping
 {
-    class ClassTextEdit
+    class ClassTextEdit 
     {
+        //I open up all needed variables and create an instance of the Stats form.
         Stats st = new Stats();
         int fail = 0;
         int keyStrokes = 0;
-        string challengeText = "";
         string challengeTextAuthor = "";
         string[] challengeTextArr = { };
         string[] arrayToReturn = { };
+
         //Sets the specified text color to the specified color
         public void AppendTextBox(RichTextBox textBox, Color color, string text,bool clear)
         {
@@ -189,8 +190,6 @@ namespace QuickTyping
             st.Show();
         }
 
-
-
-
+      
     }
 }

@@ -22,6 +22,9 @@ namespace QuickTyping
         ClassTextEdit cst = new ClassTextEdit();
         DateTime start;
         DateTime end;
+        Color rightColor;
+        Color wrongColor;
+
         
         int currentWord = 0;
         int currentChar = 0;
@@ -47,7 +50,10 @@ namespace QuickTyping
 
        public void StartGame()
         {
-            
+            var parser = new FileIniDataParser();
+            IniData ColorData = parser.ReadFile(@"Profiles\TempProfile.ini");
+            rightColor = Color.FromName(ColorData["Profile"]["rightColor"]);
+            wrongColor = Color.FromName(ColorData["Profile"]["wrongColor"]);
             text = cst.PrepareText();
             cst.DisplayText(currentWord,text,challengeText,labelFinish,ButtonStats,labelAuthor);
 
@@ -77,11 +83,11 @@ namespace QuickTyping
                     }
                     if (lastChange.Length > textBoxTyping.Text.Length)
                     {
-                        cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red, true);
+                        cst.RightWrong(textBoxTyping, text, currentWord, currentChar, rightColor, wrongColor, true);
                     }
                     else
                     {
-                        cst.RightWrong(textBoxTyping, text, currentWord, currentChar, Color.LightGreen, Color.Red, false);
+                        cst.RightWrong(textBoxTyping, text, currentWord, currentChar, rightColor, wrongColor, false);
                     }
 
                     lastChange = textBoxTyping.Text;

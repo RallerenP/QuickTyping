@@ -36,3 +36,4 @@ C:\Users\rasmu\Source\Repos\QuickTyping\bin\Debug\INIFileParser.dll
 C:\Users\rasmu\Source\Repos\QuickTyping\bin\Debug\INIFileParser.xml
 C:\Users\rasmu\documents\visual studio 2015\Projects\Skole\Opgaver\QuickTyping\bin\Debug\INIFileParser.dll
 C:\Users\rasmu\documents\visual studio 2015\Projects\Skole\Opgaver\QuickTyping\bin\Debug\INIFileParser.xml
+C:\Users\rasmu\documents\visual studio 2015\Projects\Skole\Opgaver\QuickTyping\obj\Debug\QuickTyping.csprojResolveAssemblyReference.cache

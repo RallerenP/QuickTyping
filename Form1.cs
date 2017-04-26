@@ -79,16 +79,9 @@ namespace QuickTyping
             foreach (PropertyInfo c in propInfoListRight)
             {
                 this.comboBoxRightColor.Items.Add(c.Name);
-                
-            }
-
-            PropertyInfo[] propInfoListWrong = colorType.GetProperties(BindingFlags.Static |
-                                          BindingFlags.DeclaredOnly | BindingFlags.Public);
-            foreach (PropertyInfo c in propInfoListWrong)
-            {
                 this.comboBoxWrongColor.Items.Add(c.Name);
-
             }
+
             comboBoxProfiles.SelectedIndex = 0;
 
             comboBoxRightColor.SelectedIndex = int.Parse(demoData["Profile"]["rightColorIndex"]);
@@ -109,13 +102,14 @@ namespace QuickTyping
             else
             {
                 var parser = new FileIniDataParser();
+                
                 IniData data = parser.ReadFile(@"Profiles\Demo.ini");
 
                 data["Profile"]["rightColorIndex"] = comboBoxRightColor.SelectedIndex.ToString();
                 data["Profile"]["wrongColorIndex"] = comboBoxWrongColor.SelectedIndex.ToString();
 
                 data["Profile"]["rightColor"] = comboBoxRightColor.Text;
-                data["Profile"]["wrongColorIndex"] = comboBoxWrongColor.Text;
+                data["Profile"]["wrongColor"] = comboBoxWrongColor.Text;
 
                 data["Profile"]["jobMode"] = checkBoxJobMode.ToString();
                 data["Profile"]["defaultDiff"] = comboBoxDifficulty.SelectedIndex.ToString();
@@ -124,8 +118,10 @@ namespace QuickTyping
 
                 FormMainGame fmg = new FormMainGame();
                 fmg.Show();
+
+                Hide();
             }
-         
+            
             
         }
 
@@ -141,10 +137,10 @@ namespace QuickTyping
             if (e.Index >= 0)
             {
                 string n = ((ComboBox)sender).Items[e.Index].ToString();
-                Font f = new Font("Arial", 9, FontStyle.Regular);
+                Font f = comboBoxRightColor.Font;
                 Color c = Color.FromName(n);
                 Brush b = new SolidBrush(c);
-                g.DrawString(n, f, Brushes.Black, rect.X, rect.Top);
+                g.DrawString(n, f,Brushes.Black, rect.X, rect.Top);
                 g.FillRectangle(b, rect.X + 110, rect.Y + 5,
                                 rect.Width - 10, rect.Height - 10);
             }
@@ -277,7 +273,7 @@ namespace QuickTyping
             data["Profile"]["wrongColorIndex"] = comboBoxWrongColor.SelectedIndex.ToString();
 
             data["Profile"]["rightColor"] = comboBoxRightColor.Text;
-            data["Profile"]["wrongColorIndex"] = comboBoxWrongColor.Text;
+            data["Profile"]["wrongColor"] = comboBoxWrongColor.Text;
 
             data["Profile"]["jobMode"] = checkBoxJobMode.ToString();
             data["Profile"]["defaultDiff"] = comboBoxDefaultDiff.SelectedIndex.ToString();
@@ -304,7 +300,9 @@ namespace QuickTyping
         private void buttonNewProfile_Click(object sender, EventArgs e)
         {
             textBoxName.Visible = true;
+            buttonNewProfile.Visible = false;
             textBoxName.SelectAll();
+
         
         }
 
@@ -329,8 +327,10 @@ namespace QuickTyping
                 textBoxName.Visible = false;
                 comboBoxProfiles.Items.Add(textBoxName.Text);
                 textBoxName.Text = "Skriv Brugernavn Her";
+                buttonNewProfile.Visible = true;
                
             }
+           
         }
     }
 }
