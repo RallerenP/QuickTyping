@@ -18,7 +18,8 @@ namespace QuickTyping
         int keyStrokes = 0;
         string challengeText = "";
         string challengeTextAuthor = "";
-
+        string[] challengeTextArr = { };
+        string[] arrayToReturn = { };
         //Sets the specified text color to the specified color
         public void AppendTextBox(RichTextBox textBox, Color color, string text,bool clear)
         {
@@ -80,9 +81,8 @@ namespace QuickTyping
             StreamReader sr = new StreamReader(challengeNumber, System.Text.Encoding.Default);
 
 
-            challengeText = "";
-
-            string[] challengeTextArr = sr.ReadToEnd().Split('\n');
+         
+            challengeTextArr = sr.ReadToEnd().Split('\n');
             challengeTextArr[0] = challengeTextArr[0].Replace("\r", "");
             challengeTextArr[1] = challengeTextArr[1].Replace("\r", "");
             for (int i = 0; i < challengeTextArr.Length; i++)
@@ -95,7 +95,7 @@ namespace QuickTyping
                
             }
 
-            string[] arrayToReturn = challengeTextArr[0].Split(' ');
+            arrayToReturn = challengeTextArr[0].Split(' ');
             for (int i = 0; i < arrayToReturn.Length; i++)
             {
                 if (i != arrayToReturn.Length-1)
@@ -183,8 +183,8 @@ namespace QuickTyping
             st.Fails = fail;
             st.KeyStrokes = keyStrokes;
             st.Time = time;
-            string[] amountOfWords = challengeText.Split(' ');
-            st.DisplayStats(amountOfWords.Length);
+           
+            st.DisplayStats(arrayToReturn.Length);
             
             st.Show();
         }
