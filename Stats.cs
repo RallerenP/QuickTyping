@@ -48,7 +48,7 @@ namespace QuickTyping
                 displayWPM.Text = (Math.Round(((amountOfWords * 60) / time.TotalSeconds) * -1)-fails).ToString();
             }else
         	{
-                //Den giver mig et negativt tal, så jeg ganger med -1 for at give det rigtige resultat.
+                //Den giver mig et negativt tal, så jeg ganger med -1 for at give det rigtige resultat. Jeg tror dog ikke den regner rigtigt overhovedet.
                 displayWPM.Text = (Math.Round(((amountOfWords * 60) / time.TotalSeconds) * -1)).ToString();
             }
             
@@ -105,6 +105,6 @@ namespace QuickTyping
             Application.Exit();
         }
 
-      
+
     }
 }
